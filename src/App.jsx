@@ -1,7 +1,14 @@
+import InputForm from './components/InputForm';
+import Logo from './components/Logo';
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello World</h1>
+      <div className="mb-8">
+        <Logo />
+      </div>
+
+      <InputForm />
     </>
   );
 }
