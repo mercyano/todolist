@@ -19,6 +19,17 @@ function App() {
       });
     });
   }
+
+  function strikeTodo(id) {
+    SetTodolist((prevTodo) => {
+      return prevTodo.map((todoItem, index) => {
+        if (index === id) {
+          return { ...todoItem, isDone: !todoItem.isDone };
+        }
+        return todoItem;
+      });
+    });
+  }
   return (
     <>
       <div className="mb-8">
@@ -32,12 +43,15 @@ function App() {
             <Todolist
               key={index}
               id={index}
-              todo={todoItem}
+              todo={todoItem.todoItem}
               onDelete={deleteTodo}
+              onDone={strikeTodo}
+              isDone={todoItem.isDone}
             />
           );
         })}
       </div>
+      {console.log(todolist)}
     </>
   );
 }

@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
 import { MdDone } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
 const Todolist = (props) => {
-  const [isDone, setIsDone] = useState(false);
+  // const [isDone, setIsDone] = useState(false);
   function handleDoneClick() {
-    setIsDone(!isDone);
+    // setIsDone(!isDone);
+    props.onDone(props.id);
   }
 
   function handleDelete() {
@@ -20,7 +20,11 @@ const Todolist = (props) => {
             <MdDone />
           </button>
         </div>
-        <div className={`flex-grow ${isDone && 'line-through text-gray-300'}`}>
+        <div
+          className={`flex-grow ${
+            props.isDone && 'line-through text-gray-300'
+          }`}
+        >
           {props.todo}
         </div>
         <div className="flex justify-center text-gray-300 w-6 h-6 hover:bg-gray-900 hover:text-white">
