@@ -30,6 +30,17 @@ function App() {
       });
     });
   }
+
+  function editTodo(id, todo) {
+    SetTodolist((prevTodo) => {
+      return prevTodo.map((todoItem, index) => {
+        if (index === id) {
+          return { ...todoItem, todoItem: todo };
+        }
+        return todoItem;
+      });
+    });
+  }
   return (
     <>
       <div className="mb-8">
@@ -46,6 +57,7 @@ function App() {
               todo={todoItem.todoItem}
               onDelete={deleteTodo}
               onDone={strikeTodo}
+              onChange={editTodo}
               isDone={todoItem.isDone}
             />
           );

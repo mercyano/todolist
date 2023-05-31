@@ -2,14 +2,16 @@
 import { MdDone } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
 const Todolist = (props) => {
-  // const [isDone, setIsDone] = useState(false);
   function handleDoneClick() {
-    // setIsDone(!isDone);
     props.onDone(props.id);
   }
 
   function handleDelete() {
     props.onDelete(props.id);
+  }
+
+  function handleChange(event) {
+    props.onChange(props.id, event.target.value);
   }
 
   return (
@@ -20,12 +22,18 @@ const Todolist = (props) => {
             <MdDone />
           </button>
         </div>
-        <div
-          className={`flex-grow ${
-            props.isDone && 'line-through text-gray-300'
-          }`}
-        >
-          {props.todo}
+        <div className="flex-grow">
+          <form>
+            <input
+              type="text"
+              value={props.todo}
+              className={`w-full focus:outline-none ${
+                props.isDone && 'line-through text-gray-300'
+              }`}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </form>
         </div>
         <div className="flex justify-center text-gray-300 w-6 h-6 hover:bg-gray-900 hover:text-white">
           <button type="submit" onClick={handleDelete}>
