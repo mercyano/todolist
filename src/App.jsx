@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InputForm from './components/InputForm';
 import Logo from './components/Logo';
 import Todolist from './components/Todolist';
 
 function App() {
-  const [todolist, SetTodolist] = useState([]);
+  const [todolist, SetTodolist] = useState(() => {
+    const storedTodolist = localStorage.getItem('todolist');
+    return storedTodolist ? JSON.parse(storedTodolist) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todolist', JSON.stringify(todolist));
+  }, [todolist]);
 
   function addNote(todo) {
     SetTodolist((prevTodo) => {
