@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Footer from './components/Footer';
 import InputForm from './components/InputForm';
 import Logo from './components/Logo';
 import Todolist from './components/Todolist';
@@ -70,7 +71,7 @@ function App() {
           );
         })}
       </div>
-      {console.log(todolist)}
+      <Footer />
     </>
   );
 }
