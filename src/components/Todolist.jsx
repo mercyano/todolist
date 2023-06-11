@@ -18,7 +18,11 @@ const Todolist = (props) => {
     <>
       <div className="flex w-full items-center border-4 border-gray-300 p-2 text-xl gap-2">
         <div className="flex justify-center text-gray-300 w-6 h-6 hover:bg-gray-900 hover:text-white ">
-          <button type="submit" onClick={handleDoneClick}>
+          <button
+            type="submit"
+            aria-label="Strikethrough the task"
+            onClick={handleDoneClick}
+          >
             <MdDone />
           </button>
         </div>
@@ -26,6 +30,7 @@ const Todolist = (props) => {
           <form>
             <input
               type="text"
+              aria-label="Edit the task"
               value={props.todo}
               className={`w-full focus:outline-none ${
                 props.isDone && 'line-through text-gray-300'
@@ -36,7 +41,11 @@ const Todolist = (props) => {
           </form>
         </div>
         <div className="flex justify-center text-gray-300 w-6 h-6 hover:bg-gray-900 hover:text-white">
-          <button type="submit" onClick={handleDelete}>
+          <button
+            type="submit"
+            aria-label="Delete the task"
+            onClick={handleDelete}
+          >
             <RxCross2 />
           </button>
         </div>
