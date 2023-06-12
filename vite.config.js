@@ -16,9 +16,9 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'TTODOLIST: A simple todolist',
+        name: 'TTODOLISTT',
         short_name: 'TTODOLISTT',
-        description: 'TTODOLIST: A simple todolist',
+        description: 'TTODOLISTT: A simple todolist',
         theme_color: '#ffffff',
         icons: [
           {
